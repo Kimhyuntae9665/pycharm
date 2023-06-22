@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Question
 
 
@@ -11,4 +11,10 @@ from .models import Question
 def index(request):
     question_list = Question.objects.order_by('-create_date')
     context = {'question_list':question_list}
-    return render(request,'pybo/question_list.html',context)
+    return render(request,'pybo/question_detail.html',context)
+
+def detail(request,question_id):
+    question = get_object_or_404(Question,pk=question_id)
+    context = {'question':question}
+    # 'pybo/question_detail.html'  여기로 context 변수에 Question 모델 갹체를  담아서 보낸다
+    return render(request,'pybo/question_detail.html',context)
