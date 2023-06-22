@@ -1,0 +1,10 @@
+{% if question_list %}
+    <ul>
+    {% for question in question_list %}
+        <li><a href="{% url 'pybo:detail' question.id}">{{ question.subject }}</a>
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>질 문 이 없 습 니 다.</p>
+{% endif %}

@@ -14,6 +14,7 @@ def index(request):
     return render(request,'pybo/question_detail.html',context)
 
 def detail(request,question_id):
+    #여기서 3번째 question 객체가 question 변수에 들어간다
     question = get_object_or_404(Question,pk=question_id)
     context = {'question':question}
     # 'pybo/question_detail.html'  여기로 context 변수에 Question 모델 갹체를  담아서 보낸다
