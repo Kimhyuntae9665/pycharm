@@ -27,6 +27,9 @@
                 </div>
             </div>
             <div class="my-3">
+                <a href="javascript:void(0)" data-uri="{% url 'pybo:question_vote' question.id %}" class="recommend btn btn-sm btn-outline-secondary">추천
+                    <span class="badge rounded-pill bg-sucess">{{question.voter.count}}</span>
+                </a>
                 {% if request.user == question.author %}
                 <a href ="{% url 'pybo:question_modify' question.id %}"
                 class="btn btn-sm btn-outline-secondary">수정</a>
